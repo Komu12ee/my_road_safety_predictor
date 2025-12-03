@@ -5,6 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/my_road_safety_predictor/",   // ⭐ ADD THIS LINE ONLY
+  
   server: {
     host: "::",
     port: 8080,
