@@ -23,7 +23,7 @@ interface PredictionForm {
   num_reported_accidents: string;
 }
 
-const BACKEND_BASE = "http://127.0.0.1:5000";
+const BACKEND_BASE = "http://172.16.204.149:5000";
 
 const Predict = () => {
   const [isLoading, setIsLoading] = useState(false);

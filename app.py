@@ -128,18 +128,24 @@ def predict():
         data = request.json
         print("🔥 Incoming raw input:", data)
 
-        # Preprocess like notebook
+        # Preprocess input
         processed_df = preprocess_input(data)
         print("🧠 Processed features shape:", processed_df.shape)
 
+        # --------------- SANITIZE processed_df -> JSON-safe ----------------
+        # replace np.nan, inf, -inf with None so json is valid
+        processed_sanitized = processed_df.replace(
+            {np.nan: None, np.inf: None, -np.inf: None}
+        ).to_dict()
+
+        # Predict using original dataframe (not sanitized dict)
         pred = model.predict(processed_df)[0]
-        pred_value = round(float(pred), 4)*100
+        pred_value = round(float(pred), 4) * 100
 
-
-        # Save to history
+        # Save to history (use sanitized processed)
         save_history({
             "input": data,
-            "processed": processed_df.to_dict(),
+            "processed": processed_sanitized,
             "prediction": pred_value,
             "timestamp": __import__("datetime").datetime.now().isoformat()
         })
@@ -155,6 +161,7 @@ def predict():
 def history():
     with open(HISTORY_FILE, "r") as f:
         data = json.load(f)
+        # print(data)
     return jsonify(data)
 
 

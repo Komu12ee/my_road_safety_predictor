@@ -1,166 +1,187 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { RefreshCw, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
-interface HistoryRecord {
-  id: number;
+interface HistoryRaw {
+  input: any;
+  processed: any;
+  prediction: number;
   timestamp: string;
-  weather: string;
-  lighting: string;
-  vehicle: string;
-  severity: string;
 }
 
-const mockHistory: HistoryRecord[] = [
-  {
-    id: 1,
-    timestamp: "2025-12-01 14:30",
-    weather: "Clear",
-    lighting: "Daylight",
-    vehicle: "Car",
-    severity: "Low Severity",
-  },
-  {
-    id: 2,
-    timestamp: "2025-12-01 13:15",
-    weather: "Rainy",
-    lighting: "Daylight",
-    vehicle: "Truck",
-    severity: "High Severity",
-  },
-  {
-    id: 3,
-    timestamp: "2025-12-01 11:45",
-    weather: "Foggy",
-    lighting: "Darkness - Lights Lit",
-    vehicle: "Motorcycle",
-    severity: "Medium Severity",
-  },
-  {
-    id: 4,
-    timestamp: "2025-11-30 22:00",
-    weather: "Clear",
-    lighting: "Darkness - No Lighting",
-    vehicle: "Car",
-    severity: "High Severity",
-  },
-  {
-    id: 5,
-    timestamp: "2025-11-30 18:30",
-    weather: "Snowy",
-    lighting: "Darkness - Lights Lit",
-    vehicle: "Bus",
-    severity: "Medium Severity",
-  },
-  {
-    id: 6,
-    timestamp: "2025-11-30 15:20",
-    weather: "Clear",
-    lighting: "Daylight",
-    vehicle: "Bicycle",
-    severity: "Low Severity",
-  },
-  {
-    id: 7,
-    timestamp: "2025-11-30 10:00",
-    weather: "Windy",
-    lighting: "Daylight",
-    vehicle: "Car",
-    severity: "Low Severity",
-  },
-  {
-    id: 8,
-    timestamp: "2025-11-29 20:45",
-    weather: "Rainy",
-    lighting: "Darkness - Lights Unlit",
-    vehicle: "Truck",
-    severity: "High Severity",
-  },
-];
-
 const History = () => {
+  const [history, setHistory] = useState<HistoryRaw[]>([]);
+  const [expandedRow, setExpandedRow] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isRefreshing, setIsRefreshing] = useState(false);
+
   const itemsPerPage = 5;
 
-  const totalPages = Math.ceil(mockHistory.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentData = mockHistory.slice(startIndex, endIndex);
+  // -----------------------------
+  // Correct Fetch URL
+  // -----------------------------
+  const fetchHistory = async () => {
+    try {
+      setIsRefreshing(true);
 
-  const handleRefresh = () => {
-    setIsRefreshing(true);
-    // Simulate API call
-    setTimeout(() => {
+      const res = await fetch("http://172.16.204.149:5000/api/history"); // FIXED
+
+      if (!res.ok) {
+        throw new Error(`HTTP error: ${res.status}`);
+      }
+
+      const data = await res.json();
+      setHistory(data);
+
       toast({
-        title: "Data refreshed",
-        description: "Prediction history has been updated",
+        title: "History Updated",
+        description: "Latest prediction history loaded successfully",
       });
+    } catch (error: any) {
+      console.error("❌ Fetch Error:", error);
+
+      toast({
+        title: "Error Fetching History",
+        description: error.message || "Cannot reach the backend",
+      });
+    } finally {
       setIsRefreshing(false);
-    }, 1000);
+    }
   };
 
-  const getSeverityVariant = (severity: string) => {
-    if (severity.includes("High")) return "destructive";
-    if (severity.includes("Medium")) return "default";
-    return "secondary";
+  useEffect(() => {
+    fetchHistory();
+  }, []);
+
+  const totalPages = Math.ceil(history.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = history.slice(startIndex, endIndex);
+
+  const toggleRow = (index: number) => {
+    setExpandedRow(expandedRow === index ? null : index);
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+
       <main className="container mx-auto px-4 py-8">
+        {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold mb-2">Prediction History</h1>
-            <p className="text-muted-foreground">
-              View all your past accident severity predictions
-            </p>
+            <p className="text-muted-foreground">Raw results returned from backend</p>
           </div>
-          <Button onClick={handleRefresh} disabled={isRefreshing} className="gap-2">
+
+          <Button onClick={fetchHistory} disabled={isRefreshing} className="gap-2">
             <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
             Refresh
           </Button>
         </div>
 
+        {/* Card */}
         <Card className="shadow-card">
           <CardHeader>
-            <CardTitle>Recent Predictions</CardTitle>
-            <CardDescription>
-              All predictions are stored and can be reviewed anytime
-            </CardDescription>
+            <CardTitle>Raw Prediction History</CardTitle>
+            <CardDescription>Direct data from history.json</CardDescription>
           </CardHeader>
+
           <CardContent>
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Timestamp</TableHead>
-                    <TableHead>Weather</TableHead>
-                    <TableHead>Lighting</TableHead>
-                    <TableHead>Vehicle</TableHead>
-                    <TableHead>Severity</TableHead>
+                    <TableHead>Prediction</TableHead>
+                    <TableHead>Details</TableHead>
                   </TableRow>
                 </TableHeader>
+
                 <TableBody>
-                  {currentData.map((record) => (
-                    <TableRow key={record.id}>
-                      <TableCell className="font-medium">{record.timestamp}</TableCell>
-                      <TableCell>{record.weather}</TableCell>
-                      <TableCell>{record.lighting}</TableCell>
-                      <TableCell>{record.vehicle}</TableCell>
-                      <TableCell>
-                        <Badge variant={getSeverityVariant(record.severity)}>
-                          {record.severity}
-                        </Badge>
+                  {currentData.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={3} className="text-center py-4">
+                        No history found.
                       </TableCell>
                     </TableRow>
-                  ))}
+                  ) : (
+                    currentData.map((item: HistoryRaw, index: number) => {
+                      const globalIndex = startIndex + index;
+                      const isOpen = expandedRow === globalIndex;
+
+                      return (
+                        <>
+                          {/* Main Row */}
+                          <TableRow key={globalIndex}>
+                            <TableCell className="font-medium">{item.timestamp}</TableCell>
+                            <TableCell>{item.prediction.toFixed(2)}</TableCell>
+
+                            <TableCell>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => toggleRow(globalIndex)}
+                                className="flex items-center gap-1"
+                              >
+                                {isOpen ? (
+                                  <>
+                                    Hide <ChevronUp size={16} />
+                                  </>
+                                ) : (
+                                  <>
+                                    Show <ChevronDown size={16} />
+                                  </>
+                                )}
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+
+                          {/* Expandable JSON Row */}
+                          {isOpen && (
+                            <TableRow>
+                              <TableCell colSpan={3}>
+                                <div className="bg-muted p-4 rounded-lg space-y-4">
+
+                                  <div>
+                                    <h3 className="font-semibold">Input:</h3>
+                                    <pre className="text-xs whitespace-pre-wrap bg-background p-2 rounded">
+                                      {JSON.stringify(item.input, null, 2)}
+                                    </pre>
+                                  </div>
+
+                                  <div>
+                                    <h3 className="font-semibold">Processed (model features):</h3>
+                                    <pre className="text-xs whitespace-pre-wrap bg-background p-2 rounded">
+                                      {JSON.stringify(item.processed, null, 2)}
+                                    </pre>
+                                  </div>
+
+                                </div>
+                              </TableCell>
+                            </TableRow>
+                          )}
+                        </>
+                      );
+                    })
+                  )}
                 </TableBody>
               </Table>
             </div>
@@ -168,27 +189,27 @@ const History = () => {
             {/* Pagination */}
             <div className="flex items-center justify-between mt-6">
               <p className="text-sm text-muted-foreground">
-                Showing {startIndex + 1} to {Math.min(endIndex, mockHistory.length)} of{" "}
-                {mockHistory.length} predictions
+                Showing {startIndex + 1} to {Math.min(endIndex, history.length)} of{" "}
+                {history.length} entries
               </p>
+
               <div className="flex gap-2">
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
                 >
-                  <ChevronLeft className="h-4 w-4" />
-                  Previous
+                  <ChevronLeft className="h-4 w-4" /> Previous
                 </Button>
+
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                   disabled={currentPage === totalPages}
                 >
-                  Next
-                  <ChevronRight className="h-4 w-4" />
+                  Next <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
             </div>
