@@ -48,7 +48,7 @@ const History = () => {
       }
 
       const data = await res.json();
-      setHistory(data);
+      setHistory(data.reverse());
 
       toast({
         title: "History Updated",

@@ -1,926 +1,1003 @@
 [
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 4,
-      "curvature": 4,
-      "speed_limit": 44,
-      "lighting": "dim",
-      "weather": "foggy",
-      "road_signs_present": "No",
-      "public_road": "No",
-      "time_of_day": "afternoon",
-      "holiday": "No",
-      "school_season": "No",
-      "num_reported_accidents": 4
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 4,
+            "curvature": 4,
+            "speed_limit": 44,
+            "lighting": "dim",
+            "weather": "foggy",
+            "road_signs_present": "No",
+            "public_road": "No",
+            "time_of_day": "afternoon",
+            "holiday": "No",
+            "school_season": "No",
+            "num_reported_accidents": 4
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 4
+            },
+            "curvature": {
+                "0": 4
+            },
+            "speed_limit": {
+                "0": 44
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 0
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 4
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 1
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 1
+            },
+            "wtr_rainy": {
+                "0": 0
+            },
+            "time_sin": {
+                "0": 0.8660254037844387
+            },
+            "time_cos": {
+                "0": -0.4999999999999998
+            }
+        },
+        "prediction": 0.5519252419471741,
+        "timestamp": "2025-12-03T13:46:12.870162"
     },
-    "processed": {
-      "num_lanes": {
-        "0": 4
-      },
-      "curvature": {
-        "0": 4
-      },
-      "speed_limit": {
-        "0": 44
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 0
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 4
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 1
-      },
-      "lt_night": {
-        "0": 0
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 1
-      },
-      "wtr_rainy": {
-        "0": 0
-      },
-      "time_sin": {
-        "0": 0.8660254037844387
-      },
-      "time_cos": {
-        "0": -0.4999999999999998
-      }
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 2,
+            "curvature": 2,
+            "speed_limit": 22,
+            "lighting": "dim",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "Yes",
+            "time_of_day": "morning",
+            "holiday": "No",
+            "school_season": "Yes",
+            "num_reported_accidents": 222
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 2
+            },
+            "curvature": {
+                "0": 2
+            },
+            "speed_limit": {
+                "0": 22
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 1
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 1
+            },
+            "num_reported_accidents": {
+                "0": 222
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 1
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": 0.0
+            },
+            "time_cos": {
+                "0": 1.0
+            }
+        },
+        "prediction": 48.02,
+        "timestamp": "2025-12-03T13:52:32.944470"
     },
-    "prediction": 0.5519252419471741,
-    "timestamp": "2025-12-03T13:46:12.870162"
-  },
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 2,
-      "curvature": 2,
-      "speed_limit": 22,
-      "lighting": "dim",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "Yes",
-      "time_of_day": "morning",
-      "holiday": "No",
-      "school_season": "Yes",
-      "num_reported_accidents": 222
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 2,
+            "curvature": 2,
+            "speed_limit": 22,
+            "lighting": "dim",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "Yes",
+            "time_of_day": "morning",
+            "holiday": "No",
+            "school_season": "Yes",
+            "num_reported_accidents": 222
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 2
+            },
+            "curvature": {
+                "0": 2
+            },
+            "speed_limit": {
+                "0": 22
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 1
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 1
+            },
+            "num_reported_accidents": {
+                "0": 222
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 1
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": 0.0
+            },
+            "time_cos": {
+                "0": 1.0
+            }
+        },
+        "prediction": 48.02,
+        "timestamp": "2025-12-03T13:53:04.810336"
     },
-    "processed": {
-      "num_lanes": {
-        "0": 2
-      },
-      "curvature": {
-        "0": 2
-      },
-      "speed_limit": {
-        "0": 22
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 1
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 1
-      },
-      "num_reported_accidents": {
-        "0": 222
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 1
-      },
-      "lt_night": {
-        "0": 0
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": 0.0
-      },
-      "time_cos": {
-        "0": 1.0
-      }
+    {
+        "input": {
+            "road_type": "rural",
+            "num_lanes": 2,
+            "curvature": 2,
+            "speed_limit": 22,
+            "lighting": "night",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "No",
+            "time_of_day": "afternoon",
+            "holiday": "No",
+            "school_season": "No",
+            "num_reported_accidents": 222
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 2
+            },
+            "curvature": {
+                "0": 2
+            },
+            "speed_limit": {
+                "0": 22
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 0
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 222
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 1
+            },
+            "rt_urban": {
+                "0": 0
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 0
+            },
+            "lt_night": {
+                "0": 1
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": 0.8660254037844387
+            },
+            "time_cos": {
+                "0": -0.4999999999999998
+            }
+        },
+        "prediction": 90.41,
+        "timestamp": "2025-12-03T13:54:18.691074"
     },
-    "prediction": 48.02,
-    "timestamp": "2025-12-03T13:52:32.944470"
-  },
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 2,
-      "curvature": 2,
-      "speed_limit": 22,
-      "lighting": "dim",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "Yes",
-      "time_of_day": "morning",
-      "holiday": "No",
-      "school_season": "Yes",
-      "num_reported_accidents": 222
+    {
+        "input": {
+            "road_type": "rural",
+            "num_lanes": 2,
+            "curvature": 2,
+            "speed_limit": 22,
+            "lighting": "night",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "No",
+            "time_of_day": "afternoon",
+            "holiday": "No",
+            "school_season": "No",
+            "num_reported_accidents": 222
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 2
+            },
+            "curvature": {
+                "0": 2
+            },
+            "speed_limit": {
+                "0": 22
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 0
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 222
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 1
+            },
+            "rt_urban": {
+                "0": 0
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 0
+            },
+            "lt_night": {
+                "0": 1
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": 0.8660254037844387
+            },
+            "time_cos": {
+                "0": -0.4999999999999998
+            }
+        },
+        "prediction": 90.41,
+        "timestamp": "2025-12-03T13:54:27.732151"
     },
-    "processed": {
-      "num_lanes": {
-        "0": 2
-      },
-      "curvature": {
-        "0": 2
-      },
-      "speed_limit": {
-        "0": 22
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 1
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 1
-      },
-      "num_reported_accidents": {
-        "0": 222
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 1
-      },
-      "lt_night": {
-        "0": 0
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": 0.0
-      },
-      "time_cos": {
-        "0": 1.0
-      }
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 3,
+            "curvature": 3,
+            "speed_limit": 33,
+            "lighting": "night",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "Yes",
+            "time_of_day": "evening",
+            "holiday": "Yes",
+            "school_season": "No",
+            "num_reported_accidents": 333
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 3
+            },
+            "curvature": {
+                "0": 3
+            },
+            "speed_limit": {
+                "0": 33
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 1
+            },
+            "holiday": {
+                "0": 1
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 333
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 0
+            },
+            "lt_night": {
+                "0": 1
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": -0.8660254037844385
+            },
+            "time_cos": {
+                "0": -0.5000000000000004
+            }
+        },
+        "prediction": 93.88,
+        "timestamp": "2025-12-03T14:05:28.242033"
     },
-    "prediction": 48.02,
-    "timestamp": "2025-12-03T13:53:04.810336"
-  },
-  {
-    "input": {
-      "road_type": "rural",
-      "num_lanes": 2,
-      "curvature": 2,
-      "speed_limit": 22,
-      "lighting": "night",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "No",
-      "time_of_day": "afternoon",
-      "holiday": "No",
-      "school_season": "No",
-      "num_reported_accidents": 222
+    {
+        "input": {
+            "road_type": "highway",
+            "num_lanes": 8,
+            "curvature": 5,
+            "speed_limit": 88,
+            "lighting": "dim",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "Yes",
+            "time_of_day": "afternoon",
+            "holiday": "No",
+            "school_season": "Yes",
+            "num_reported_accidents": 7
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 8
+            },
+            "curvature": {
+                "0": 5
+            },
+            "speed_limit": {
+                "0": 88
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 1
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 1
+            },
+            "num_reported_accidents": {
+                "0": 7
+            },
+            "rt_highway": {
+                "0": 1
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 0
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 1
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": 0.8660254037844387
+            },
+            "time_cos": {
+                "0": -0.4999999999999998
+            }
+        },
+        "prediction": 78.31,
+        "timestamp": "2025-12-03T14:09:20.530144"
     },
-    "processed": {
-      "num_lanes": {
-        "0": 2
-      },
-      "curvature": {
-        "0": 2
-      },
-      "speed_limit": {
-        "0": 22
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 0
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 222
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 1
-      },
-      "rt_urban": {
-        "0": 0
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 0
-      },
-      "lt_night": {
-        "0": 1
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": 0.8660254037844387
-      },
-      "time_cos": {
-        "0": -0.4999999999999998
-      }
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 2,
+            "curvature": 2,
+            "speed_limit": 22,
+            "lighting": "dim",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "No",
+            "time_of_day": "evening",
+            "holiday": "Yes",
+            "school_season": "Yes",
+            "num_reported_accidents": 222
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 2
+            },
+            "curvature": {
+                "0": 2
+            },
+            "speed_limit": {
+                "0": 22
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 0
+            },
+            "holiday": {
+                "0": 1
+            },
+            "school_season": {
+                "0": 1
+            },
+            "num_reported_accidents": {
+                "0": 222
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 1
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": -0.8660254037844385
+            },
+            "time_cos": {
+                "0": -0.5000000000000004
+            }
+        },
+        "prediction": 41.85,
+        "timestamp": "2025-12-03T14:52:23.647993"
     },
-    "prediction": 90.41,
-    "timestamp": "2025-12-03T13:54:18.691074"
-  },
-  {
-    "input": {
-      "road_type": "rural",
-      "num_lanes": 2,
-      "curvature": 2,
-      "speed_limit": 22,
-      "lighting": "night",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "No",
-      "time_of_day": "afternoon",
-      "holiday": "No",
-      "school_season": "No",
-      "num_reported_accidents": 222
+    {
+        "input": {
+            "road_type": "rural",
+            "num_lanes": 2,
+            "curvature": 2,
+            "speed_limit": 22,
+            "lighting": "",
+            "weather": "clear",
+            "road_signs_present": "",
+            "public_road": "Yes",
+            "time_of_day": "afternoon",
+            "holiday": "Yes",
+            "school_season": "No",
+            "num_reported_accidents": 6
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 2
+            },
+            "curvature": {
+                "0": 2
+            },
+            "speed_limit": {
+                "0": 22
+            },
+            "road_signs_present": {
+                "0": null
+            },
+            "public_road": {
+                "0": 1
+            },
+            "holiday": {
+                "0": 1
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 6
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 1
+            },
+            "rt_urban": {
+                "0": 0
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 0
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 1
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 0
+            },
+            "time_sin": {
+                "0": 0.8660254037844387
+            },
+            "time_cos": {
+                "0": -0.4999999999999998
+            }
+        },
+        "prediction": 23.34,
+        "timestamp": "2025-12-03T15:02:06.238619"
     },
-    "processed": {
-      "num_lanes": {
-        "0": 2
-      },
-      "curvature": {
-        "0": 2
-      },
-      "speed_limit": {
-        "0": 22
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 0
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 222
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 1
-      },
-      "rt_urban": {
-        "0": 0
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 0
-      },
-      "lt_night": {
-        "0": 1
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": 0.8660254037844387
-      },
-      "time_cos": {
-        "0": -0.4999999999999998
-      }
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 3,
+            "curvature": 3,
+            "speed_limit": 33,
+            "lighting": "daylight",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "No",
+            "time_of_day": "afternoon",
+            "holiday": "Yes",
+            "school_season": "No",
+            "num_reported_accidents": 333
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 3
+            },
+            "curvature": {
+                "0": 3
+            },
+            "speed_limit": {
+                "0": 33
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 0
+            },
+            "holiday": {
+                "0": 1
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 333
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 1
+            },
+            "lt_dim": {
+                "0": 0
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": 0.8660254037844387
+            },
+            "time_cos": {
+                "0": -0.4999999999999998
+            }
+        },
+        "prediction": 41.02,
+        "timestamp": "2025-12-03T15:06:25.190391"
     },
-    "prediction": 90.41,
-    "timestamp": "2025-12-03T13:54:27.732151"
-  },
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 3,
-      "curvature": 3,
-      "speed_limit": 33,
-      "lighting": "night",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "Yes",
-      "time_of_day": "evening",
-      "holiday": "Yes",
-      "school_season": "No",
-      "num_reported_accidents": 333
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 3,
+            "curvature": 3,
+            "speed_limit": 33,
+            "lighting": "night",
+            "weather": "rainy",
+            "road_signs_present": "No",
+            "public_road": "No",
+            "time_of_day": "morning",
+            "holiday": "No",
+            "school_season": "No",
+            "num_reported_accidents": 33333
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 3
+            },
+            "curvature": {
+                "0": 3
+            },
+            "speed_limit": {
+                "0": 33
+            },
+            "road_signs_present": {
+                "0": 0
+            },
+            "public_road": {
+                "0": 0
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 33333
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 0
+            },
+            "lt_night": {
+                "0": 1
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": 0.0
+            },
+            "time_cos": {
+                "0": 1.0
+            }
+        },
+        "prediction": 95.84,
+        "timestamp": "2025-12-03T15:34:28.904441"
     },
-    "processed": {
-      "num_lanes": {
-        "0": 3
-      },
-      "curvature": {
-        "0": 3
-      },
-      "speed_limit": {
-        "0": 33
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 1
-      },
-      "holiday": {
-        "0": 1
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 333
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 0
-      },
-      "lt_night": {
-        "0": 1
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": -0.8660254037844385
-      },
-      "time_cos": {
-        "0": -0.5000000000000004
-      }
+    {
+        "input": {
+            "road_type": "urban",
+            "num_lanes": 3,
+            "curvature": 3,
+            "speed_limit": 33,
+            "lighting": "night",
+            "weather": "foggy",
+            "road_signs_present": "Yes",
+            "public_road": "Yes",
+            "time_of_day": "afternoon",
+            "holiday": "No",
+            "school_season": "No",
+            "num_reported_accidents": 333
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 3
+            },
+            "curvature": {
+                "0": 3
+            },
+            "speed_limit": {
+                "0": 33
+            },
+            "road_signs_present": {
+                "0": 1
+            },
+            "public_road": {
+                "0": 1
+            },
+            "holiday": {
+                "0": 0
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 333
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 0
+            },
+            "rt_urban": {
+                "0": 1
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 0
+            },
+            "lt_night": {
+                "0": 1
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 1
+            },
+            "wtr_rainy": {
+                "0": 0
+            },
+            "time_sin": {
+                "0": 0.8660254037844387
+            },
+            "time_cos": {
+                "0": -0.4999999999999998
+            }
+        },
+        "prediction": 93.28999999999999,
+        "timestamp": "2025-12-03T15:44:14.357616"
     },
-    "prediction": 93.88,
-    "timestamp": "2025-12-03T14:05:28.242033"
-  },
-  {
-    "input": {
-      "road_type": "highway",
-      "num_lanes": 8,
-      "curvature": 5,
-      "speed_limit": 88,
-      "lighting": "dim",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "Yes",
-      "time_of_day": "afternoon",
-      "holiday": "No",
-      "school_season": "Yes",
-      "num_reported_accidents": 7
-    },
-    "processed": {
-      "num_lanes": {
-        "0": 8
-      },
-      "curvature": {
-        "0": 5
-      },
-      "speed_limit": {
-        "0": 88
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 1
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 1
-      },
-      "num_reported_accidents": {
-        "0": 7
-      },
-      "rt_highway": {
-        "0": 1
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 0
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 1
-      },
-      "lt_night": {
-        "0": 0
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": 0.8660254037844387
-      },
-      "time_cos": {
-        "0": -0.4999999999999998
-      }
-    },
-    "prediction": 78.31,
-    "timestamp": "2025-12-03T14:09:20.530144"
-  },
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 2,
-      "curvature": 2,
-      "speed_limit": 22,
-      "lighting": "dim",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "No",
-      "time_of_day": "evening",
-      "holiday": "Yes",
-      "school_season": "Yes",
-      "num_reported_accidents": 222
-    },
-    "processed": {
-      "num_lanes": {
-        "0": 2
-      },
-      "curvature": {
-        "0": 2
-      },
-      "speed_limit": {
-        "0": 22
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 0
-      },
-      "holiday": {
-        "0": 1
-      },
-      "school_season": {
-        "0": 1
-      },
-      "num_reported_accidents": {
-        "0": 222
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 1
-      },
-      "lt_night": {
-        "0": 0
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": -0.8660254037844385
-      },
-      "time_cos": {
-        "0": -0.5000000000000004
-      }
-    },
-    "prediction": 41.85,
-    "timestamp": "2025-12-03T14:52:23.647993"
-  },
-  {
-    "input": {
-      "road_type": "rural",
-      "num_lanes": 2,
-      "curvature": 2,
-      "speed_limit": 22,
-      "lighting": "",
-      "weather": "clear",
-      "road_signs_present": "",
-      "public_road": "Yes",
-      "time_of_day": "afternoon",
-      "holiday": "Yes",
-      "school_season": "No",
-      "num_reported_accidents": 6
-    },
-    "processed": {
-      "num_lanes": {
-        "0": 2
-      },
-      "curvature": {
-        "0": 2
-      },
-      "speed_limit": {
-        "0": 22
-      },
-      "road_signs_present": {
-        "0": null
-      },
-      "public_road": {
-        "0": 1
-      },
-      "holiday": {
-        "0": 1
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 6
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 1
-      },
-      "rt_urban": {
-        "0": 0
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 0
-      },
-      "lt_night": {
-        "0": 0
-      },
-      "wtr_clear": {
-        "0": 1
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 0
-      },
-      "time_sin": {
-        "0": 0.8660254037844387
-      },
-      "time_cos": {
-        "0": -0.4999999999999998
-      }
-    },
-    "prediction": 23.34,
-    "timestamp": "2025-12-03T15:02:06.238619"
-  },
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 3,
-      "curvature": 3,
-      "speed_limit": 33,
-      "lighting": "daylight",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "No",
-      "time_of_day": "afternoon",
-      "holiday": "Yes",
-      "school_season": "No",
-      "num_reported_accidents": 333
-    },
-    "processed": {
-      "num_lanes": {
-        "0": 3
-      },
-      "curvature": {
-        "0": 3
-      },
-      "speed_limit": {
-        "0": 33
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 0
-      },
-      "holiday": {
-        "0": 1
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 333
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 1
-      },
-      "lt_dim": {
-        "0": 0
-      },
-      "lt_night": {
-        "0": 0
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": 0.8660254037844387
-      },
-      "time_cos": {
-        "0": -0.4999999999999998
-      }
-    },
-    "prediction": 41.02,
-    "timestamp": "2025-12-03T15:06:25.190391"
-  },
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 3,
-      "curvature": 3,
-      "speed_limit": 33,
-      "lighting": "night",
-      "weather": "rainy",
-      "road_signs_present": "No",
-      "public_road": "No",
-      "time_of_day": "morning",
-      "holiday": "No",
-      "school_season": "No",
-      "num_reported_accidents": 33333
-    },
-    "processed": {
-      "num_lanes": {
-        "0": 3
-      },
-      "curvature": {
-        "0": 3
-      },
-      "speed_limit": {
-        "0": 33
-      },
-      "road_signs_present": {
-        "0": 0
-      },
-      "public_road": {
-        "0": 0
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 33333
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 0
-      },
-      "lt_night": {
-        "0": 1
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 0
-      },
-      "wtr_rainy": {
-        "0": 1
-      },
-      "time_sin": {
-        "0": 0.0
-      },
-      "time_cos": {
-        "0": 1.0
-      }
-    },
-    "prediction": 95.84,
-    "timestamp": "2025-12-03T15:34:28.904441"
-  },
-  {
-    "input": {
-      "road_type": "urban",
-      "num_lanes": 3,
-      "curvature": 3,
-      "speed_limit": 33,
-      "lighting": "night",
-      "weather": "foggy",
-      "road_signs_present": "Yes",
-      "public_road": "Yes",
-      "time_of_day": "afternoon",
-      "holiday": "No",
-      "school_season": "No",
-      "num_reported_accidents": 333
-    },
-    "processed": {
-      "num_lanes": {
-        "0": 3
-      },
-      "curvature": {
-        "0": 3
-      },
-      "speed_limit": {
-        "0": 33
-      },
-      "road_signs_present": {
-        "0": 1
-      },
-      "public_road": {
-        "0": 1
-      },
-      "holiday": {
-        "0": 0
-      },
-      "school_season": {
-        "0": 0
-      },
-      "num_reported_accidents": {
-        "0": 333
-      },
-      "rt_highway": {
-        "0": 0
-      },
-      "rt_rural": {
-        "0": 0
-      },
-      "rt_urban": {
-        "0": 1
-      },
-      "lt_daylight": {
-        "0": 0
-      },
-      "lt_dim": {
-        "0": 0
-      },
-      "lt_night": {
-        "0": 1
-      },
-      "wtr_clear": {
-        "0": 0
-      },
-      "wtr_foggy": {
-        "0": 1
-      },
-      "wtr_rainy": {
-        "0": 0
-      },
-      "time_sin": {
-        "0": 0.8660254037844387
-      },
-      "time_cos": {
-        "0": -0.4999999999999998
-      }
-    },
-    "prediction": 93.28999999999999,
-    "timestamp": "2025-12-03T15:44:14.357616"
-  }
+    {
+        "input": {
+            "road_type": "rural",
+            "num_lanes": 3,
+            "curvature": 3,
+            "speed_limit": 33,
+            "lighting": "dim",
+            "weather": "rainy",
+            "road_signs_present": "Yes",
+            "public_road": "Yes",
+            "time_of_day": "evening",
+            "holiday": "Yes",
+            "school_season": "No",
+            "num_reported_accidents": 3333
+        },
+        "processed": {
+            "num_lanes": {
+                "0": 3
+            },
+            "curvature": {
+                "0": 3
+            },
+            "speed_limit": {
+                "0": 33
+            },
+            "road_signs_present": {
+                "0": 1
+            },
+            "public_road": {
+                "0": 1
+            },
+            "holiday": {
+                "0": 1
+            },
+            "school_season": {
+                "0": 0
+            },
+            "num_reported_accidents": {
+                "0": 3333
+            },
+            "rt_highway": {
+                "0": 0
+            },
+            "rt_rural": {
+                "0": 1
+            },
+            "rt_urban": {
+                "0": 0
+            },
+            "lt_daylight": {
+                "0": 0
+            },
+            "lt_dim": {
+                "0": 1
+            },
+            "lt_night": {
+                "0": 0
+            },
+            "wtr_clear": {
+                "0": 0
+            },
+            "wtr_foggy": {
+                "0": 0
+            },
+            "wtr_rainy": {
+                "0": 1
+            },
+            "time_sin": {
+                "0": -0.8660254037844385
+            },
+            "time_cos": {
+                "0": -0.5000000000000004
+            }
+        },
+        "prediction": 33.73,
+        "timestamp": "2025-12-03T16:26:46.120426"
+    }
 ]

@@ -14,27 +14,61 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setIsLoading(true);
+  // const handleLogin = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setError("");
+  //   setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      if (email && password) {
-        // Store mock user data
-        localStorage.setItem("user", JSON.stringify({ email, name: email.split("@")[0] }));
-        toast({
-          title: "Login successful",
-          description: "Welcome back!",
-        });
-        navigate("/dashboard");
-      } else {
-        setError("Please enter valid credentials");
-      }
-      setIsLoading(false);
-    }, 1000);
-  };
+  //   // Simulate API call
+  //   setTimeout(() => {
+  //     if (email && password) {
+  //       // Store mock user data
+  //       localStorage.setItem("user", JSON.stringify({ email, name: email.split("@")[0] }));
+  //       toast({
+  //         title: "Login successful",
+  //         description: "Welcome back!",
+  //       });
+  //       navigate("/dashboard");
+  //     } else {
+  //       setError("Please enter valid credentials");
+  //     }
+  //     setIsLoading(false);
+  //   }, 1000);
+  // };
+  const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError("");
+  setIsLoading(true);
+
+  try {
+    const res = await fetch("http://172.16.204.149:5000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      // Save user session
+      localStorage.setItem("user", JSON.stringify({ email }));
+
+      toast({
+        title: "Login successful",
+        description: "Welcome back!",
+      });
+      navigate("/dashboard");
+    } else {
+      setError(data.message || "Invalid credentials");
+    }
+  } catch (err) {
+    setError("Cannot reach server");
+  }
+
+  setIsLoading(false);
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
