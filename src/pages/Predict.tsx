@@ -23,7 +23,8 @@ interface PredictionForm {
   num_reported_accidents: string;
 }
 
-const BACKEND_BASE = "http://172.16.204.149:5000";
+// const BACKEND_BASE = "http://172.16.204.149:5000";
+const BACKEND_BASE = "http://localhost:5000";
 
 const Predict = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -58,6 +59,7 @@ const Predict = () => {
     setPrediction(null);
 
     try {
+      console.log("try ke andar h")
       const payload = {
         road_type: formData.road_type,
         num_lanes: Number(formData.num_lanes),
@@ -65,9 +67,9 @@ const Predict = () => {
         speed_limit: Number(formData.speed_limit),
         lighting: formData.lighting,
         weather: formData.weather,
-        road_signs_present: formData.road_signs_present,  
-        public_road: formData.public_road,                
-        time_of_day: formData.time_of_day,                
+        road_signs_present: formData.road_signs_present,
+        public_road: formData.public_road,
+        time_of_day: formData.time_of_day,
         holiday: formData.holiday,
         school_season: formData.school_season,
         num_reported_accidents: Number(formData.num_reported_accidents)
@@ -297,7 +299,7 @@ const Predict = () => {
                     onValueChange={(v) => handleSelectChange("school_season", v)}
                     required
                   >
-                    <SelectTrigger><SelectValue placeholder="Select season"/></SelectTrigger>
+                    <SelectTrigger><SelectValue placeholder="Select season" /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="Yes">Yes</SelectItem>
                       <SelectItem value="No">No</SelectItem>
@@ -325,13 +327,12 @@ const Predict = () => {
 
               {prediction && (
                 <Card
-                  className={`${
-                    prediction.includes("High")
-                      ? "bg-destructive/10 border-destructive"
-                      : prediction.includes("Medium")
+                  className={`${prediction.includes("High")
+                    ? "bg-destructive/10 border-destructive"
+                    : prediction.includes("Medium")
                       ? "bg-amber-500/10 border-amber-500"
                       : "bg-accent/10 border-accent"
-                  }`}
+                    }`}
                 >
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">

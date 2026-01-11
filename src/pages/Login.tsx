@@ -36,39 +36,39 @@ const Login = () => {
   //   }, 1000);
   // };
   const handleLogin = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setError("");
-  setIsLoading(true);
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
 
-  try {
-    const res = await fetch("http://172.16.204.149:5000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ email, password })
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      // Save user session
-      localStorage.setItem("user", JSON.stringify({ email }));
-
-      toast({
-        title: "Login successful",
-        description: "Welcome back!",
+    try {
+      const res = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
       });
-      navigate("/dashboard");
-    } else {
-      setError(data.message || "Invalid credentials");
-    }
-  } catch (err) {
-    setError("Cannot reach server");
-  }
 
-  setIsLoading(false);
-};
+      const data = await res.json();
+
+      if (res.ok) {
+        // Save user session
+        localStorage.setItem("user", JSON.stringify({ email }));
+
+        toast({
+          title: "Login successful",
+          description: "Welcome back!",
+        });
+        navigate("/dashboard");
+      } else {
+        setError(data.message || "Invalid credentials");
+      }
+    } catch (err) {
+      setError("Cannot reach server");
+    }
+
+    setIsLoading(false);
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">

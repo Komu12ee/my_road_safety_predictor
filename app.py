@@ -172,10 +172,10 @@ def login():
 def predict():
     try:
         data = request.json
-        print("🔥 Incoming raw input:", data)
+        print("Incoming raw input:", data)
 
         processed_df = preprocess_input(data)
-        print("🧠 Processed features shape:", processed_df.shape)
+        print("Processed features shape:", processed_df.shape)
 
         processed_sanitized = processed_df.replace(
             {np.nan: None, np.inf: None, -np.inf: None}
@@ -194,7 +194,7 @@ def predict():
         return jsonify({"severity_prediction": pred_value})
 
     except Exception as e:
-        print("❌ ERROR:", str(e))
+        print("ERROR:", str(e))
         return jsonify({"error": str(e)}), 400
 
 

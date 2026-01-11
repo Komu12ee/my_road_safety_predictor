@@ -33,7 +33,7 @@ const History = () => {
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const itemsPerPage = 5;
-
+  console.log("history wala code running  ")
   // -----------------------------
   // Correct Fetch URL
   // -----------------------------
@@ -41,15 +41,14 @@ const History = () => {
     try {
       setIsRefreshing(true);
 
-      const res = await fetch("http://172.16.204.149:5000/api/history"); // FIXED
-
+      const res = await fetch("http://localhost:5000/api/history"); // FIXED
       if (!res.ok) {
         throw new Error(`HTTP error: ${res.status}`);
       }
 
       const data = await res.json();
       setHistory(data.reverse());
-
+     
       toast({
         title: "History Updated",
         description: "Latest prediction history loaded successfully",
