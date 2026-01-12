@@ -88,3 +88,5 @@ The frontend is built with React and communicates with the backend.
 -   **`src/`**: Frontend source code (React).
 -   **`xgb_accident_severity_model.pkl`**: The trained ML model.
 -   **`users.json` / `history.json`**: Local data storage.
+
+**Note-** for more detail about the project just visit the *project.md* file 
