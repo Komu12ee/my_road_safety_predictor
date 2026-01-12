@@ -1,74 +1,90 @@
-# Welcome to your Lovable project
+# Road Accident Severity Predictor
 
-## Project info
+A machine learning-powered web application that predicts the severity of road accidents based on environmental and road conditions. This project uses a **Flask (Python)** backend with an XGBoost model and a **React (Vite)** frontend.
 
-**URL**: https://lovable.dev/projects/b5bf227b-2e13-4a5c-bf05-bca8d26c142d
+## 🚀 Features
+-   **Severity Prediction**: Predict accident severity (0-100%) based on inputs like weather, lighting, and road type.
+-   **Interactive Dashboard**: User-friendly form and visualization of results.
+-   **History Tracking**: Saves past predictions for review.
+-   **User System**: Simple login and registration.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🛠️ Prerequisites
 
-**Use Lovable**
+Before you begin, ensure you have the following installed on your machine:
+1.  **Python** (v3.8 or higher)
+2.  **Node.js** (v16 or higher) & **npm**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b5bf227b-2e13-4a5c-bf05-bca8d26c142d) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ⚙️ Installation & Setup
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### 1. Clone or Download the Project
+Navigate to the project directory in your terminal:
+```bash
+cd road-safety-predictor-main
 ```
 
-**Edit a file directly in GitHub**
+### 2. Backend Setup (Flask)
+The backend runs on Python and serves the machine learning model.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1.  **Open a terminal** and navigate to the project root.
+2.  **Install Python dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+3.  **Start the Backend Server**:
+    ```bash
+    python app.py
+    ```
+    *   The server will start at `http://localhost:5000`.
+    *   **Keep this terminal open.**
 
-**Use GitHub Codespaces**
+### 3. Frontend Setup (React + Vite)
+The frontend is built with React and communicates with the backend.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1.  **Open a NEW terminal** (do not close the backend terminal).
+2.  **Install Node dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Start the Frontend Server**:
+    ```bash
+    npm run dev
+    ```
+4.  **Access the Application**:
+    *   The terminal will show a local URL, typically:
+    *   [http://localhost:8080/my_road_safety_predictor/](http://localhost:8080/my_road_safety_predictor/)
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## ⚠️ Troubleshooting / Common Issues
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 1. "Internal Server Error" or App Crash on Predict
+**Issue:** The backend console crashes when you click "Predict".
+**Cause:** This often happens on Windows if the terminal cannot handle specific emoji characters used in the logs.
+**Fix:**
+*   We have already removed emojis from the code.
+*   **Important:** If you see this, ensure you have **restarted the python server** completely (use `Ctrl+C` to stop, then `python app.py` to start again).
 
-## How can I deploy this project?
+### 2. "Network Error" or "Failed to Fetch"
+**Issue:** The frontend cannot talk to the backend.
+**Fix:**
+*   Ensure the backend is running (`python app.py`).
+*   Ensure it is running on port **5000**.
+*   Check that the frontend code points to `http://localhost:5000` (this has been configured in the latest version).
 
-Simply open [Lovable](https://lovable.dev/projects/b5bf227b-2e13-4a5c-bf05-bca8d26c142d) and click on Share -> Publish.
+### 3. "404 Not Found" on Page Load
+**Issue:** You see a blank page or 404 error when opening the link.
+**Fix:**
+*   Ensure you are visiting the full URL including the sub-path: `http://localhost:8080/my_road_safety_predictor/`
+*   Do not just go to `localhost:8080/`.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
-# my_road_safety_predictor
+## 📂 Project Structure
+-   **`app.py`**: Main backend entry point.
+-   **`src/`**: Frontend source code (React).
+-   **`xgb_accident_severity_model.pkl`**: The trained ML model.
+-   **`users.json` / `history.json`**: Local data storage.
