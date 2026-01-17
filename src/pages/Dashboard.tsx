@@ -3,20 +3,85 @@ import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Activity, History, User, TrendingUp, AlertTriangle, CheckCircle } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { useEffect, useState } from "react";
 
-const mockChartData = [
-  { day: "Mon", predictions: 12 },
-  { day: "Tue", predictions: 19 },
-  { day: "Wed", predictions: 15 },
-  { day: "Thu", predictions: 25 },
-  { day: "Fri", predictions: 22 },
-  { day: "Sat", predictions: 18 },
-  { day: "Sun", predictions: 10 },
-];
+interface PredictionHistory {
+  date: string;
+  input: any;
+  prediction: number;
+  processed: any;
+  timestamp: string;
+}
 
 const Dashboard = () => {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   const userName = user.name || "User";
+  console.log(userName);
+
+  const [stats, setStats] = useState({
+    total: 0,
+    highSeverity: 0,
+    lowSeverity: 0,
+    highPercentage: 0,
+    lowPercentage: 0
+  });
+
+  const [chartData, setChartData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/history");
+        const data: PredictionHistory[] = await response.json();
+
+        // Calculate Stats
+        const total = data.length;
+        const highSeverity = data.filter(item => item.prediction > 50).length;
+        const lowSeverity = total - highSeverity;
+
+        setStats({
+          total,
+          highSeverity,
+          lowSeverity,
+          highPercentage: total > 0 ? Math.round((highSeverity / total) * 100) : 0,
+          lowPercentage: total > 0 ? Math.round((lowSeverity / total) * 100) : 0
+        });
+
+        // Process Chart Data (Last 7 Days)
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const last7Days = new Map<string, number>();
+        
+        // Initialize last 7 days with 0
+        for (let i = 6; i >= 0; i--) {
+          const d = new Date();
+          d.setDate(d.getDate() - i);
+          const dayName = days[d.getDay()];
+          last7Days.set(dayName, 0);
+        }
+
+        // Fill with actual data
+        data.forEach(item => {
+          const date = new Date(item.timestamp);
+          const dayName = days[date.getDay()];
+          if (last7Days.has(dayName)) {
+            last7Days.set(dayName, (last7Days.get(dayName) || 0) + 1);
+          }
+        });
+
+        const formattedChartData = Array.from(last7Days).map(([day, count]) => ({
+          day,
+          predictions: count
+        }));
+
+        setChartData(formattedChartData);
+
+      } catch (error) {
+        console.error("Error fetching history:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -88,7 +153,7 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={mockChartData}>
+                <BarChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                   <XAxis dataKey="day" className="text-xs" />
                   <YAxis className="text-xs" />
@@ -114,8 +179,8 @@ const Dashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">121</div>
-                <p className="text-xs text-muted-foreground mt-1">+12 from last week</p>
+                <div className="text-3xl font-bold">{stats.total}</div>
+                <p className="text-xs text-muted-foreground mt-1">Lifetime total</p>
               </CardContent>
             </Card>
 
@@ -127,8 +192,8 @@ const Dashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">23</div>
-                <p className="text-xs text-muted-foreground mt-1">19% of total</p>
+                <div className="text-3xl font-bold">{stats.highSeverity}</div>
+                <p className="text-xs text-muted-foreground mt-1">{stats.highPercentage}% of total</p>
               </CardContent>
             </Card>
 
@@ -140,8 +205,8 @@ const Dashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">98</div>
-                <p className="text-xs text-muted-foreground mt-1">81% of total</p>
+                <div className="text-3xl font-bold">{stats.lowSeverity}</div>
+                <p className="text-xs text-muted-foreground mt-1">{stats.lowPercentage}% of total</p>
               </CardContent>
             </Card>
           </div>

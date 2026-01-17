@@ -159,7 +159,7 @@ def login():
             return jsonify({
                 "status": "success",
                 "message": "Login successful",
-                "user": {"email": email}
+                "user": {"email": email, "name": u["name"]}
             })
 
     return jsonify({"status": "error", "message": "Invalid email or password"}), 401

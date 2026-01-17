@@ -53,7 +53,7 @@ const Login = () => {
 
       if (res.ok) {
         // Save user session
-        localStorage.setItem("user", JSON.stringify({ email }));
+        localStorage.setItem("user", JSON.stringify(data.user));
 
         toast({
           title: "Login successful",
