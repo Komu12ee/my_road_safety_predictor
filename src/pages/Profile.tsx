@@ -19,7 +19,7 @@ const Profile = () => {
   });
   const [isChangingPassword, setIsChangingPassword] = useState(false);
 
-  const handlePasswordChange = (e: React.FormEvent) => {
+  const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (passwords.new !== passwords.confirm) {
@@ -42,15 +42,43 @@ const Profile = () => {
 
     setIsChangingPassword(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      toast({
-        title: "Password updated",
-        description: "Your password has been changed successfully",
+    try {
+      const response = await fetch("http://localhost:5000/api/change-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user.email,
+          current_password: passwords.current,
+          new_password: passwords.new,
+        }),
       });
-      setPasswords({ current: "", new: "", confirm: "" });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Password updated",
+          description: data.message,
+        });
+        setPasswords({ current: "", new: "", confirm: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: data.message || "Failed to update password",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsChangingPassword(false);
-    }, 1000);
+    }
   };
 
   const handleLogout = () => {

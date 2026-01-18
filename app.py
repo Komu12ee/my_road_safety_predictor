@@ -165,6 +165,36 @@ def login():
     return jsonify({"status": "error", "message": "Invalid email or password"}), 401
 
 
+
+# -----------------------------
+# CHANGE PASSWORD
+# -----------------------------
+@app.route("/api/change-password", methods=["POST"])
+def change_password():
+    data = request.json
+    email = data.get("email")
+    current_password = data.get("current_password")
+    new_password = data.get("new_password")
+
+    users = load_users()
+    user_found = False
+
+    for u in users:
+        if u["email"] == email:
+            if u["password"] == current_password:
+                u["password"] = new_password
+                user_found = True
+                break
+            else:
+                return jsonify({"status": "error", "message": "Incorrect current password"}), 400
+    
+    if user_found:
+        save_users(users)
+        return jsonify({"status": "success", "message": "Password updated successfully"})
+    else:
+        return jsonify({"status": "error", "message": "User not found"}), 404
+
+
 # -----------------------------
 # PREDICT
 # -----------------------------
