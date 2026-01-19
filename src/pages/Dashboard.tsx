@@ -172,43 +172,49 @@ const Dashboard = () => {
 
           {/* Stats */}
           <div className="space-y-4">
-            <Card className="shadow-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-sm font-medium text-muted-foreground">
-                  Total Predictions
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold">{stats.total}</div>
-                <p className="text-xs text-muted-foreground mt-1">Lifetime total</p>
-              </CardContent>
-            </Card>
+            <Link to="/history">
+              <Card className="shadow-card hover:shadow-hover transition-all duration-300 cursor-pointer">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">
+                    Total Predictions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold">{stats.total}</div>
+                  <p className="text-xs text-muted-foreground mt-1">Lifetime total</p>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="shadow-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4 text-destructive" />
-                  High Severity
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold">{stats.highSeverity}</div>
-                <p className="text-xs text-muted-foreground mt-1">{stats.highPercentage}% of total</p>
-              </CardContent>
-            </Card>
+            <Link to="/history?filter=high">
+              <Card className="shadow-card hover:shadow-hover transition-all duration-300 cursor-pointer">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+                    <AlertTriangle className="h-4 w-4 text-destructive" />
+                    High Severity
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold">{stats.highSeverity}</div>
+                  <p className="text-xs text-muted-foreground mt-1">{stats.highPercentage}% of total</p>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="shadow-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-accent" />
-                  Low Severity
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold">{stats.lowSeverity}</div>
-                <p className="text-xs text-muted-foreground mt-1">{stats.lowPercentage}% of total</p>
-              </CardContent>
-            </Card>
+            <Link to="/history?filter=low">
+              <Card className="shadow-card hover:shadow-hover transition-all duration-300 cursor-pointer">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-accent" />
+                    Low Severity
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold">{stats.lowSeverity}</div>
+                  <p className="text-xs text-muted-foreground mt-1">{stats.lowPercentage}% of total</p>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </main>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import {
   Card,
@@ -65,14 +66,36 @@ const History = () => {
     }
   };
 
+  // -----------------------------
+  // Filter Logic
+  // -----------------------------
+  const [searchParams] = useSearchParams();
+  const filterType = searchParams.get("filter");
+
   useEffect(() => {
     fetchHistory();
-  }, []);
+  }, [filterType]); // re-fetch isn't strictly necessary if we filter client-side, but let's keep it simple for now or just filter client side.
 
-  const totalPages = Math.ceil(history.length / itemsPerPage);
+  // Let's filter client-side since we fetch all data anyway
+  const getFilteredHistory = () => {
+    if (!history.length) return [];
+    
+    switch (filterType) {
+      case "high":
+        return history.filter(item => item.prediction > 50);
+      case "low":
+        return history.filter(item => item.prediction <= 50);
+      default:
+        return history;
+    }
+  };
+
+  const filteredHistory = getFilteredHistory();
+
+  const totalPages = Math.ceil(filteredHistory.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentData = history.slice(startIndex, endIndex);
+  const currentData = filteredHistory.slice(startIndex, endIndex);
 
   const toggleRow = (index: number) => {
     setExpandedRow(expandedRow === index ? null : index);
@@ -188,8 +211,8 @@ const History = () => {
             {/* Pagination */}
             <div className="flex items-center justify-between mt-6">
               <p className="text-sm text-muted-foreground">
-                Showing {startIndex + 1} to {Math.min(endIndex, history.length)} of{" "}
-                {history.length} entries
+                Showing {filteredHistory.length > 0 ? startIndex + 1 : 0} to {Math.min(endIndex, filteredHistory.length)} of{" "}
+                {filteredHistory.length} entries
               </p>
 
               <div className="flex gap-2">
